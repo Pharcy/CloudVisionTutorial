@@ -12,7 +12,7 @@ This guide will walk you through the process of setting up a Google Service Acco
 ### 1. Create a Google Cloud Project
 
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
-2. Click on the project drop-down and select "New Project".
+2. Click on the project drop-down (top left) and select "New Project".
 3. Enter a project name and select a billing account.
 4. Click "Create".
 
@@ -47,15 +47,33 @@ This guide will walk you through the process of setting up a Google Service Acco
 1. Set the `GOOGLE_APPLICATION_CREDENTIALS` environment variable to the file path of the JSON file you downloaded.
    - On Windows:
      ```sh
-     set GOOGLE_APPLICATION_CREDENTIALS="[PATH_TO_JSON_FILE]"
+     set GOOGLE_APPLICATION_CREDENTIALS="PATH_TO_JSON_FILE"
      ```
    - On macOS/Linux:
      ```sh
-     export GOOGLE_APPLICATION_CREDENTIALS="[PATH_TO_JSON_FILE]"
+     export GOOGLE_APPLICATION_CREDENTIALS="PATH_TO_JSON_FILE"
      ```
-
+   - If this for some reason doesn't work, you can add this into your python script:
+     ```python
+     os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = "PATH_TO_JSON_FILE"
+     ```
 ### 6. Install Google Cloud Vision Client Library
 
 1. Install the Google Cloud Vision client library using pip:
    ```sh
    pip install google-cloud-vision
+   ```
+### 7. Other Libraries 
+
+I reccomend using conda, as it makes poppler much easier 
+1. Install poppler: `conda install -c conda-forge poppler`
+2. Install pdf2image: `pip install pdf2image`
+3. Install Pillow: `pip install Pillow` 
+
+### 8. Run The Test Code
+   ```sh
+   python ImageReader.py
+   ```
+   ```sh
+   python PdfReader.py
+   ```
